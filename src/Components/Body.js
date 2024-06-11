@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import FoodCard from "./FoodCard";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "../Utils/useOnlineStatus";
 
 const Body = () => {
     const [cards, setcards] = useState([])
     const [search, setsearch] = useState("")
     const [filtercard, setfiltercard] = useState([])
+    const onlinestatus= useOnlineStatus()
     const fetchdata= async ()=>{
         const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.65420&lng=77.23730")
         const json= await data.json()
@@ -20,6 +22,7 @@ const Body = () => {
         const filterfood= cards.filter((food)=> food.info.name.toLowerCase().includes(search.toLowerCase()))
         setfiltercard(filterfood)
     }
+    if(!onlinestatus) return <h1> You looks like offline! </h1>
     return (
         <div className="body">
             <div className="search-container">

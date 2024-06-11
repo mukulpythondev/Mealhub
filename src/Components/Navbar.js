@@ -1,12 +1,17 @@
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../Utils/useOnlineStatus";
+
 const Navbar = () => {
+    const onlinestatus= useOnlineStatus()
     return (
         <nav className="navbar">
             <div className="logo">Food Order</div>
             <div className="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#menu">Menu</a>
-                <a href="#contact">Contact</a>
+                <li> Online Status : { onlinestatus? "🟢":"🔴"} </li>
+                <Link to={"/"} >Home</Link>
+                <Link to={"/about"} >About</Link>
+                <Link to={"/menu"}>Menu</Link>
+                <Link to={"/contact"}>Contact</Link>
             </div>
         </nav>
     );

@@ -19,7 +19,8 @@
   "homepage": "https://github.com/mukulpythondev/Mealhub#readme",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
     "parcel": "^2.12.0",
